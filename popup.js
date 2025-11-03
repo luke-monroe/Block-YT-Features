@@ -1,6 +1,3 @@
-// JS Functionality here
-
-// Storage
 const settings = {};
 const settingsForm = document.getElementById("settingsForm");
 const shortsBox = document.getElementById("shorts")
