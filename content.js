@@ -12,11 +12,6 @@ window.onload = function () {
         
     });
 
-    document.addEventListener('DOMContentLoaded', (event) => {
-        //toggle thumbnails
-        toggleThumbnails(hideThumbnails);
-    });
-
     //get new thumbnails after scrolling
     document.addEventListener('wheel', function(event) {
         toggleThumbnails(hideThumbnails);
