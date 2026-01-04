@@ -1,28 +1,33 @@
 window.onload = function () {
-    // Get all thumbnail elements
-    var thumbnails = getThumbnails();
-    let hideThumbnails = false;
     //get settings
+    let hideThumbnails = false;
+    let hideShorts = false;
+
     chrome.storage.local.get(["shorts", "thumbnails"]).then((data) => {
         //true if thumbnails should be hidden and false if thumbnails should be shown
         hideThumbnails = data.thumbnails; 
-        // initially hide thumbnails
-        toggleThumbnails(thumbnails, hideThumbnails);
-    });
-    
+        //toggle for hiding shorts button
+        hideShorts = data.shorts;
 
+        
+    });
+
+    document.addEventListener('DOMContentLoaded', (event) => {
+        //toggle thumbnails
+        toggleThumbnails(hideThumbnails);
+    });
 
     //get new thumbnails after scrolling
     document.addEventListener('wheel', function(event) {
-        thumbnails = getThumbnails();
-        toggleThumbnails(thumbnails, hideThumbnails);
+        toggleThumbnails(hideThumbnails);
     });
 
     function getThumbnails(){
-        return document.querySelectorAll('#dismissible [id="thumbnail"]');
+        return document.querySelectorAll('.ytThumbnailViewModelImage');
     }
 
-    function toggleThumbnails(thumbnails, hide) {
+    function toggleThumbnails(hide) {
+        let thumbnails = getThumbnails()
         thumbnails.forEach(thumbnail => {
             thumbnail.style.display = hide ? 'none' : 'block';
         });
