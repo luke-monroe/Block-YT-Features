@@ -2,7 +2,7 @@ window.onload = function () {
     //get settings
     let hideThumbnails = false;
 
-    chrome.storage.local.get(["shorts", "thumbnails"]).then((data) => {
+    chrome.storage.local.get(["thumbnails"]).then((data) => {
         //true if thumbnails should be hidden and false if thumbnails should be shown
         hideThumbnails = data.thumbnails; 
     });
