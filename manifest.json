@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Your Extension",
+  "name": "YouTube Distraction Blocker",
   "version": "1.0.0",
-  "description": "Extension Description",
+  "description": "This extension optionally blocks thumbnails and other distracting YouTube features.",
   "action": {
     "default_icon": "assets/icon.png",
     "default_popup": "popup.html"
