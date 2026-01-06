@@ -5,6 +5,14 @@ window.onload = function () {
     chrome.storage.local.get(["thumbnails"]).then((data) => {
         //true if thumbnails should be hidden and false if thumbnails should be shown
         hideThumbnails = data.thumbnails; 
+
+        //start timer to run until thumbnails are loaded initially
+        loadTimer = setInterval(function(){
+            if(getThumbnails().length > 0){
+                toggleThumbnails(hideThumbnails);
+                clearTimeout(loadTimer);
+            }
+        }, 200); //check every 200ms
     });
 
 
